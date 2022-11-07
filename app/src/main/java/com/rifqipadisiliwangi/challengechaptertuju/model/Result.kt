@@ -1,4 +1,4 @@
-package com.rifqipadisiliwangi.challengchapterenam.model
+package com.rifqipadisiliwangi.challengechaptertuju.model
 
 
 import com.google.gson.annotations.SerializedName

@@ -1,10 +1,10 @@
-package com.rifqipadisiliwangi.challengchapterenam.viewmodel
+package com.rifqipadisiliwangi.challengechaptertuju.viewmodel
 
 import android.util.Log
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import com.rifqipadisiliwangi.challengchapterenam.model.ResponMovieItem
-import com.rifqipadisiliwangi.challengchapterenam.network.RestfulMovie
+import com.rifqipadisiliwangi.challengechaptertuju.model.ResponMovieItem
+import com.rifqipadisiliwangi.challengechaptertuju.network.RestfulMovie
 import dagger.hilt.android.lifecycle.HiltViewModel
 import retrofit2.Call
 import retrofit2.Callback

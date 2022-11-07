@@ -1,3 +1,3 @@
-package com.rifqipadisiliwangi.challengchapterenam.model
+package com.rifqipadisiliwangi.challengechaptertuju.model
 
 class FavoritesResponse : ArrayList<FavoritesResponseItem>()

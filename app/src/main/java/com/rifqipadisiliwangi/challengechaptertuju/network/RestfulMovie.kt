@@ -1,7 +1,7 @@
-package com.rifqipadisiliwangi.challengchapterenam.network
+package com.rifqipadisiliwangi.challengechaptertuju.network
 
 
-import com.rifqipadisiliwangi.challengchapterenam.model.ResponMovieItem
+import com.rifqipadisiliwangi.challengechaptertuju.model.ResponMovieItem
 import retrofit2.Call
 import retrofit2.http.GET
 

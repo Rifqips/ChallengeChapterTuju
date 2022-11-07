@@ -1,6 +1,6 @@
-package com.rifqipadisiliwangi.challengchapterenam.network
+package com.rifqipadisiliwangi.challengechaptertuju.network
 
-import com.rifqipadisiliwangi.challengchapterenam.model.FavoritesResponseItem
+import com.rifqipadisiliwangi.challengechaptertuju.model.FavoritesResponseItem
 import retrofit2.Call
 import retrofit2.http.*
 

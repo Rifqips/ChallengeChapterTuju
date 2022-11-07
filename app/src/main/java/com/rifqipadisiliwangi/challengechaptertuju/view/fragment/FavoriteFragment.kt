@@ -10,7 +10,7 @@ import android.widget.Toast
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.rifqipadisiliwangi.challengchapterenam.viewmodel.FavoriteViewModel
+import com.rifqipadisiliwangi.challengechaptertuju.viewmodel.FavoriteViewModel
 import com.rifqipadisiliwangi.challengechaptertuju.R
 import com.rifqipadisiliwangi.challengechaptertuju.databinding.FragmentFavoriteBinding
 import com.rifqipadisiliwangi.challengechaptertuju.view.adapters.FavoriteAdapter

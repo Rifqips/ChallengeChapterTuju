@@ -1,4 +1,4 @@
-package com.rifqipadisiliwangi.challengchapterenam.network
+package com.rifqipadisiliwangi.challengechaptertuju.network
 
 import dagger.Module
 import dagger.Provides

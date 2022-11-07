@@ -1,48 +1,112 @@
 package com.rifqipadisiliwangi.challengechaptertuju.viewmodel
 
-import android.telecom.Call
-import com.rifqipadisiliwangi.challengchapterenam.model.FavoritesResponseItem
-import com.rifqipadisiliwangi.challengchapterenam.network.RestfulApiFavorites
-import com.rifqipadisiliwangi.challengchapterenam.network.RetrofitMovie
-import io.mockk.MockKStubScope
+import com.rifqipadisiliwangi.challengechaptertuju.model.FavoritesResponseItem
+import com.rifqipadisiliwangi.challengechaptertuju.model.ResponMovieItem
+import com.rifqipadisiliwangi.challengechaptertuju.network.RestfulApiFavorites
+import com.rifqipadisiliwangi.challengechaptertuju.network.RestfulMovie
 import io.mockk.every
-import io.mockk.mockk
 import io.mockk.verify
+import io.mockk.mockk
+import org.junit.Assert.*
 import kotlinx.coroutines.runBlocking
-import org.junit.Assert.assertEquals
 import org.junit.Before
 import org.junit.Test
-
+import retrofit2.Call
 
 class FavoriteViewModelTest{
-//    lateinit var service: RestfulApiFavorites
-//    @Before
-//    fun setUp(){
-//        service = RestfulApiFavorites
-//    }
-//
-//
-//    @Test
-//    fun testRetriveNotes(): Unit = runBlocking {
-//        val responseRetrive = mockk<FavoritesResponseItem>()
-//
-//        every {
-//            runBlocking {
-//                service.get("https://63403f57e44b83bc73ccaacc.mockapi.io/favorites")
-//            }
-//        } returns responseRetrive
-//        val result = service.getAllMovie("https://63403f57e44b83bc73ccaacc.mockapi.io/favorites")
-//
-//        verify {
-//            runBlocking {
-//                service.get("https://63403f57e44b83bc73ccaacc.mockapi.io/favorites")
-//            }
-//        }
-//        assertEquals(result,responseRetrive)
-//    }
 
+    lateinit var serviceMovie: RestfulMovie
+    lateinit var serviceFavorite: RestfulApiFavorites
+
+    @Before
+    fun setUp(){
+        serviceMovie = mockk()
+        serviceFavorite = mockk()
+    }
+
+
+    @Test
+    fun getMovieTest():Unit = runBlocking{
+
+        val respAllMovie  = mockk<Call<List<ResponMovieItem>>>()
+
+        every {
+            runBlocking {
+                serviceMovie.getAllMovie()
+            }
+        }
+
+        val result = serviceMovie.getAllMovie()
+
+        verify {
+            runBlocking { serviceMovie.getAllMovie() }
+        }
+        assertEquals(result, respAllMovie)
+    }
+
+
+    @Test
+    fun getFavoritesTest(): Unit = runBlocking {
+
+        val respAllFav  = mockk<Call<List<FavoritesResponseItem>>>()
+
+        every {
+            runBlocking {
+                serviceFavorite.getAllMovie()
+            }
+        }returns respAllFav
+
+
+        val result = serviceFavorite.getAllMovie()
+
+        verify {
+            runBlocking { serviceFavorite.getAllMovie() }
+        }
+        assertEquals(result, respAllFav)
+
+    }
+
+    @Test
+    fun addFavoritesTest(): Unit = runBlocking {
+        //mocking GIVEN
+        val respAddFav = mockk<Call<FavoritesResponseItem>>()
+
+        every {
+            runBlocking {
+                serviceFavorite.addNewMovie(FavoritesResponseItem("","lang","title","poster","date","vote","overview"))
+            }
+        } returns respAddFav
+
+        // System Under Test (WHEN)
+        val result = serviceFavorite.addNewMovie(FavoritesResponseItem("","lang","title","poster","date","vote","overview"))
+
+        verify {
+            runBlocking { serviceFavorite.addNewMovie(FavoritesResponseItem("","lang","title","poster","date","vote","overview"))
+            }
+        }
+        assertEquals(result, respAddFav)
+
+    }
+    @Test
+    fun deleteFavoritesTest(): Unit = runBlocking {
+        //mocking GIVEN
+        val respDelFav = mockk<Call<Int>>()
+
+        every {
+            runBlocking {
+                serviceFavorite.deleteMovie(1)
+            }
+        } returns respDelFav
+
+        // System Under Test (WHEN)
+        val result = serviceFavorite.deleteMovie(1)
+
+        verify {
+            runBlocking { serviceFavorite.deleteMovie(1) }
+        }
+        assertEquals(result, respDelFav)
+
+    }
 }
 
-//private infix fun <T, B> MockKStubScope<T, B>.returns(responseRetrive: FavoritesResponseItem) {
-//    TODO("Not yet implemented")
-//}
+

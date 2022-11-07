@@ -5,8 +5,8 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.navigation.Navigation
 import androidx.recyclerview.widget.RecyclerView
-import com.rifqipadisiliwangi.challengchapterenam.model.Constant
-import com.rifqipadisiliwangi.challengchapterenam.model.Result
+import com.rifqipadisiliwangi.challengechaptertuju.model.Constant
+import com.rifqipadisiliwangi.challengechaptertuju.model.Result
 import com.rifqipadisiliwangi.challengechaptertuju.R
 import com.rifqipadisiliwangi.challengechaptertuju.databinding.ItemVidioBinding
 import com.squareup.picasso.Picasso

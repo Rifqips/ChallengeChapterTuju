@@ -9,8 +9,8 @@ import android.widget.Toast
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.GridLayoutManager
-import com.rifqipadisiliwangi.challengchapterenam.viewmodel.FavoriteViewModel
-import com.rifqipadisiliwangi.challengchapterenam.viewmodel.ViewModel
+import com.rifqipadisiliwangi.challengechaptertuju.viewmodel.FavoriteViewModel
+import com.rifqipadisiliwangi.challengechaptertuju.viewmodel.ViewModel
 import com.rifqipadisiliwangi.challengechaptertuju.R
 import com.rifqipadisiliwangi.challengechaptertuju.databinding.FragmentHomeBinding
 import com.rifqipadisiliwangi.challengechaptertuju.view.adapters.MovieAdapter

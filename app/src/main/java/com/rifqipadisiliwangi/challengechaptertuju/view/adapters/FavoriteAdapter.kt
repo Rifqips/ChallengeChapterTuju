@@ -6,7 +6,7 @@ import android.view.ViewGroup
 import androidx.navigation.Navigation
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
-import com.rifqipadisiliwangi.challengchapterenam.model.FavoritesResponseItem
+import com.rifqipadisiliwangi.challengechaptertuju.model.FavoritesResponseItem
 import com.rifqipadisiliwangi.challengechaptertuju.R
 import com.rifqipadisiliwangi.challengechaptertuju.databinding.ItemFavoritesBinding
 
