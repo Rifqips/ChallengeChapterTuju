@@ -28,13 +28,13 @@ class FavoriteViewModelTest{
     @Test
     fun getMovieTest():Unit = runBlocking{
 
-        val respAllMovie  = mockk<Call<List<ResponMovieItem>>>()
+        val respAllMovie  = mockk<Call<ResponMovieItem>>()
 
         every {
             runBlocking {
                 serviceMovie.getAllMovie()
             }
-        }
+        }returns respAllMovie
 
         val result = serviceMovie.getAllMovie()
 
