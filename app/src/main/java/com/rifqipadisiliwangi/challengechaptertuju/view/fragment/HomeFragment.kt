@@ -20,7 +20,6 @@ import dagger.hilt.android.AndroidEntryPoint
 class HomeFragment : Fragment() {
 
     lateinit var binding : FragmentHomeBinding
-//    private lateinit var auth : FirebaseAuth
     lateinit var vidioAdapter: MovieAdapter
 
     override fun onCreateView(
@@ -45,7 +44,7 @@ class HomeFragment : Fragment() {
     }
 
     private fun setUpMovie(){
-        val viewModel = ViewModelProvider(requireActivity()).get(ViewModel::class.java)
+        val viewModel = ViewModelProvider(requireActivity())[ViewModel::class.java]
         viewModel.getliveDataVidio().observe(viewLifecycleOwner) {
 
             if (it != null) {
@@ -57,7 +56,7 @@ class HomeFragment : Fragment() {
                 vidioAdapter.onAddFavorites = {
                     binding.homeProgressBar.visibility = View.VISIBLE
                     val favViewModel =
-                        ViewModelProvider(requireActivity()).get(FavoriteViewModel::class.java)
+                        ViewModelProvider(requireActivity())[FavoriteViewModel::class.java]
                     favViewModel.callPostMovie(
                         it.posterPath,
                         it.originalTitle,

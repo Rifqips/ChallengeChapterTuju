@@ -1,3 +1,5 @@
+@file:Suppress("PropertyName", "FunctionName")
+
 package com.rifqipadisiliwangi.challengechaptertuju.view.fragment
 
 import android.content.Context
@@ -5,7 +7,6 @@ import android.content.Intent
 import android.content.SharedPreferences
 import android.os.Bundle
 import android.preference.PreferenceManager
-import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -20,20 +21,24 @@ import com.google.android.gms.common.api.ApiException
 import com.google.android.gms.tasks.Task
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.GoogleAuthProvider
+import com.google.firebase.auth.ktx.auth
+import com.google.firebase.ktx.Firebase
 import com.rifqipadisiliwangi.challengechaptertuju.R
 import com.rifqipadisiliwangi.challengechaptertuju.databinding.FragmentLoginBinding
 
+@Suppress("FunctionName")
 class LoginFragment : Fragment() {
 
     lateinit var binding: FragmentLoginBinding
     lateinit var mGoogleSignInClient: GoogleSignInClient
     val Req_Code:Int=123
     var firebaseAuth= FirebaseAuth.getInstance()
+    private lateinit var auth: FirebaseAuth
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         // Inflate the layout for this fragment
         binding = FragmentLoginBinding.inflate(layoutInflater, container, false)
         return binding.root
@@ -42,6 +47,9 @@ class LoginFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        auth = Firebase.auth
+        formValidation()
+
         val gso = GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
             .requestIdToken(getString(R.string.client_id))
             .requestEmail()
@@ -52,7 +60,7 @@ class LoginFragment : Fragment() {
         firebaseAuth= FirebaseAuth.getInstance()
 
         binding.btnLogin.setOnClickListener {
-            findNavController().navigate(R.id.action_loginFragment_to_homeFragment)
+            loginAction()
         }
 
         binding.tvSignUp.setOnClickListener{
@@ -107,45 +115,31 @@ class LoginFragment : Fragment() {
         }
     }
 
-    object SavedPreference {
-
-        const val EMAIL= "email"
-        const val USERNAME="username"
-
-        private  fun getSharedPreference(ctx: Context?): SharedPreferences? {
-            return PreferenceManager.getDefaultSharedPreferences(ctx)
+    private fun formValidation() {
+        when {
+            binding.etEmail.text?.isEmpty()!! -> binding.btnLogin.isClickable = false
+            binding.etPassword.text?.isEmpty()!! -> binding.btnLogin.isClickable = false
+            else -> binding.btnLogin.isClickable = true
         }
-
-        private fun  editor(context: Context, const:String, string: String){
-            getSharedPreference(
-                context
-            )?.edit()?.putString(const,string)?.apply()
-        }
-
-        fun getEmail(context: Context)= getSharedPreference(
-            context
-        )?.getString(EMAIL,"")
-
-        fun setEmail(context: Context, email: String){
-            editor(
-                context,
-                EMAIL,
-                email
-            )
-        }
-
-        fun setUsername(context: Context, username:String){
-            editor(
-                context,
-                USERNAME,
-                username
-            )
-        }
-
-        fun getUsername(context: Context) = getSharedPreference(
-            context
-        )?.getString(USERNAME,"")
-
     }
+
+    private fun loginAction() {
+        // Acomodate all user credential
+        val email = binding.etEmail.text.toString()
+        val password = binding.etPassword.toString()
+        /**
+         * Login action to Firebase Auth
+         * @param email is val user email
+         * @param password is password user
+         */
+        auth.signInWithEmailAndPassword(email, password).addOnCompleteListener { task ->
+            if (task.isSuccessful) {
+                findNavController().navigate(R.id.action_loginFragment_to_homeFragment)
+            } else {
+                Toast.makeText(requireContext(), task.exception?.message, Toast.LENGTH_LONG).show()
+            }
+        }
+    }
+
 
 }

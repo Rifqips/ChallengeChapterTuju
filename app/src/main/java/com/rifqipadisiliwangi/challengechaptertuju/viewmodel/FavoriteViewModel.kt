@@ -12,6 +12,7 @@ import retrofit2.Response
 import javax.inject.Inject
 
 
+@Suppress("JoinDeclarationAndAssignment", "JoinDeclarationAndAssignment")
 @HiltViewModel
 class FavoriteViewModel @Inject constructor(var api : RestfulApiFavorites): ViewModel(){
     val liveDataFav : MutableLiveData<List<FavoritesResponseItem>>

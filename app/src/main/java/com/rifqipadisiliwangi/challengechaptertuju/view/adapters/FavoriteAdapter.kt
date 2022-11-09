@@ -14,9 +14,7 @@ class FavoriteAdapter (var listMovie : List<FavoritesResponseItem>): RecyclerVie
 
     var onDeleteFavorites : ((Int)->Unit)? = null
 
-    class ViewHoldler(var binding : ItemFavoritesBinding): RecyclerView.ViewHolder(binding.root) {
-
-    }
+    class ViewHoldler(var binding : ItemFavoritesBinding): RecyclerView.ViewHolder(binding.root)
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHoldler {
         val view = ItemFavoritesBinding.inflate(LayoutInflater.from(parent.context), parent, false)

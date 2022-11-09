@@ -34,7 +34,7 @@ class FavoriteFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        favViewModel = ViewModelProvider(requireActivity()).get(FavoriteViewModel::class.java)
+        favViewModel = ViewModelProvider(requireActivity())[FavoriteViewModel::class.java]
         setVMFavAdapter()
 
         binding.ivBack.setOnClickListener {
@@ -56,7 +56,7 @@ class FavoriteFragment : Fragment() {
 
                 adapter.onDeleteFavorites = {
                     val favViewModel =
-                        ViewModelProvider(requireActivity()).get(FavoriteViewModel::class.java)
+                        ViewModelProvider(requireActivity())[FavoriteViewModel::class.java]
                     favViewModel.callDeleteFavMovie(it)
                     favViewModel.delFavMovie().observe(viewLifecycleOwner) {
                         if (it != null) {

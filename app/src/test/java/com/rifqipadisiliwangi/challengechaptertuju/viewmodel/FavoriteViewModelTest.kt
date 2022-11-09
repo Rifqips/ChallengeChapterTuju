@@ -68,7 +68,6 @@ class FavoriteViewModelTest{
 
     @Test
     fun addFavoritesTest(): Unit = runBlocking {
-        //mocking GIVEN
         val respAddFav = mockk<Call<FavoritesResponseItem>>()
 
         every {
@@ -77,7 +76,6 @@ class FavoriteViewModelTest{
             }
         } returns respAddFav
 
-        // System Under Test (WHEN)
         val result = serviceFavorite.addNewMovie(FavoritesResponseItem("","lang","title","poster","date","vote","overview"))
 
         verify {
@@ -89,7 +87,6 @@ class FavoriteViewModelTest{
     }
     @Test
     fun deleteFavoritesTest(): Unit = runBlocking {
-        //mocking GIVEN
         val respDelFav = mockk<Call<Int>>()
 
         every {
@@ -98,7 +95,6 @@ class FavoriteViewModelTest{
             }
         } returns respDelFav
 
-        // System Under Test (WHEN)
         val result = serviceFavorite.deleteMovie(1)
 
         verify {

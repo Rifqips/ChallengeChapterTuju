@@ -1,3 +1,13 @@
+@file:Suppress("MemberVisibilityCanBePrivate", "MemberVisibilityCanBePrivate",
+    "MemberVisibilityCanBePrivate", "MemberVisibilityCanBePrivate", "MemberVisibilityCanBePrivate",
+    "MemberVisibilityCanBePrivate", "MemberVisibilityCanBePrivate", "MemberVisibilityCanBePrivate",
+    "MemberVisibilityCanBePrivate", "MemberVisibilityCanBePrivate", "MemberVisibilityCanBePrivate",
+    "MemberVisibilityCanBePrivate", "MemberVisibilityCanBePrivate", "MemberVisibilityCanBePrivate",
+    "MemberVisibilityCanBePrivate", "MemberVisibilityCanBePrivate", "MemberVisibilityCanBePrivate",
+    "MemberVisibilityCanBePrivate", "MemberVisibilityCanBePrivate", "MemberVisibilityCanBePrivate",
+    "MemberVisibilityCanBePrivate", "MemberVisibilityCanBePrivate", "MemberVisibilityCanBePrivate"
+)
+
 package com.rifqipadisiliwangi.challengechaptertuju.view.fragment
 
 import android.os.Bundle
@@ -10,6 +20,9 @@ import com.bumptech.glide.Glide
 import com.rifqipadisiliwangi.challengechaptertuju.R
 import com.rifqipadisiliwangi.challengechaptertuju.databinding.FragmentDetilBinding
 
+@Suppress("MemberVisibilityCanBePrivate", "MemberVisibilityCanBePrivate",
+    "MemberVisibilityCanBePrivate", "MemberVisibilityCanBePrivate"
+)
 class DetilFragment : Fragment() {
 
     lateinit var binding : FragmentDetilBinding
@@ -17,7 +30,7 @@ class DetilFragment : Fragment() {
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         // Inflate the layout for this fragment
         binding = FragmentDetilBinding.inflate(layoutInflater,container,false)
         return binding.root

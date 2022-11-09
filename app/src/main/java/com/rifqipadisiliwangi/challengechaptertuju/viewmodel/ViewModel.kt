@@ -15,8 +15,6 @@ import javax.inject.Inject
 class ViewModel @Inject constructor(var api : RestfulMovie): ViewModel(){
 
     var liveDataVidio: MutableLiveData<ResponMovieItem>
-    var liveDataMovie: MutableLiveData<ResponMovieItem> = MutableLiveData()
-    var updateUser : MutableLiveData<ResponMovieItem> = MutableLiveData()
     var loading = MutableLiveData<Boolean>()
 
     init {
